@@ -1,41 +1,35 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { useContext } from 'react';
 import FeedbackItem from "./FeedbackItem";
-import PropTypes from 'prop-types';
+import FeedbackContext from '../context/FeedbackContext';
+import Spinner from './Spinner';
 
-function FeedbackList({ feedback, handleDelete }) {
+function FeedbackList() {
+  const { feedback, isLoading } = useContext(FeedbackContext)
 
-  if (!feedback || feedback.length === 0) {
-    return <p>No feedback yet...</p>
-  };
+  if (!isLoading && (!feedback || feedback.length === 0)) {
+    return <p>No Feedback Yet</p>
+  }
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <div className='feedback-list'>
       <AnimatePresence>
-        {feedback.map(({ id, rating, text }) => {
-          return (
-            <motion.div
-              key={id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 1 }}
-            >
-              <FeedbackItem
-                key={id}
-                rating={rating}
-                text={text}
-                id={id}
-                handleDelete={handleDelete}
-              />
-            </motion.div>
-          )
-        })}
+        {feedback.map((item) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            layout
+          >
+            <FeedbackItem key={item.id} item={item} />
+          </motion.div>
+        ))}
       </AnimatePresence>
     </div>
   )
-};
-
-FeedbackList.propTypes = {
-  feedback: PropTypes.array,
 };
 
 export default FeedbackList;
