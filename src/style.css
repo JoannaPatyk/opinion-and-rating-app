@@ -1,9 +1,14 @@
-/* font-family: 'Nerko One', cursive; */
-/* font-family: 'Montserrat', sans-serif; */
-/* color:
-#2e8a56;
-#86be9e; */
 
+ :root {
+--font-basic: 'Montserrat', sans-serif;
+--font-title: 'Rubik', sans-serif;
+
+--primary-100:#86be9e;
+--primary-500: #2e8b57;
+
+--black: #333;
+--white: #fff;
+ }
 
 * {
     box-sizing: border-box;
@@ -12,9 +17,9 @@
   }
   
   body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #333;
-    color: #2e8a56;
+    font-family: var(--font-basic);
+    background-color: var(--black);
+    color: var(--primary-500);
     line-height: 1.6;
   }
   
@@ -25,25 +30,42 @@
   .container {
     max-width: 768px;
     margin: auto;
-    padding: 0 20px;
+    padding: 0 10px;
+  }
+
+  .logo {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    font-weight: 100;
+    font-size: 20rem;
+    opacity: .2;
+  }
+
+  .help {
+    position: sticky;
+    bottom: 0;
+    left: 0;
   }
   
   header {
-    height: 70px;
+    height: 100px;
     width: 100%;
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    font-family: 'Nerko One', cursive;
+    font-family: var(--font-title);
     font-size: 32px;
+    font-weight: 100;
     text-transform: uppercase;
     letter-spacing: 2px;
   }
-  
+
   .card {
-    background-color: #fff;
-    color: #333;
+    background-color: var(--white);
+    color: var(--black);
     border-radius: 15px;
     padding: 40px 50px;
     margin: 20px 0;
@@ -52,7 +74,7 @@
   
   .card.reverse {
     background-color: rgba(0, 0, 0, 0.4);
-    color: #fff;
+    color: var(--white);
   }
   
   .card h2 {
@@ -71,14 +93,14 @@
   .rating li,
   .num-display {
     position: relative;
-    background: #333;
+    background: var(--black);
     width: 50px;
     height: 50px;
     padding: 10px;
     text-align: center;
     border-radius: 50%;
     font-size: 19px;
-    border: 1px #2e8a56 solid;
+    border: 1px var(--primary-500) solid;
     transition: 0.3s;
   }
   
@@ -89,7 +111,7 @@
     width: 50px;
     height: 50px;
     padding: 10px;
-    color: #ccc;
+    color: var(--white);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
@@ -97,9 +119,9 @@
   
   .rating li:hover,
   .num-display {
-    background: #86be9e;
-    box-shadow: 1px 1px 5px #2e8a56;
-    color: #fff;
+    background: var(--primary-100);
+    box-shadow: 1px 1px 5px var(--primary-500);
+    color: var(--black);
   }
   
   [type='radio'] {
@@ -107,15 +129,15 @@
   }
   
   [type='radio']:checked ~ label {
-    background: #2e8a56;
-    box-shadow: 1px 1px 10px #2e8a56;
-    color: #fff;
+    background: var(--primary-500);
+    box-shadow: 1px 1px 10px var(--primary-500);
+    color: var(--white);
   }
   
   .input-group {
     display: flex;
     flex-direction: row;
-    border: 1px solid #ccc;
+    border: 1px solid var(--primary-500);
     padding: 8px 10px;
     border-radius: 8px;
   }
@@ -131,7 +153,7 @@
   }
   
   .feedback-stats {
-    color: #fff;
+    color: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -158,10 +180,9 @@
   }
   
   .btn {
-    color: #fff;
-    border: 0;
+    color: var(--white);
+    border:0;
     border-radius: 8px;
-    color: #fff;
     width: 100px;
     height: 40px;
     letter-spacing: 2px;
@@ -173,24 +194,24 @@
   }
   
   .btn-primary {
-    background-color: #2e8a56;
+    background-color: var(--primary-500);
   }
   
   .btn-secondary {
-    background: #86be9e;
+    background: var(--primary-100);
   }
   
   .btn:hover {
     transform: scale(0.98);
-    background-color:#86be9e;
-    color: #333;
+    background-color:var(--primary-100);
+    color: var(--black);
     opacity: 0.9;
     transition: .5s;
   }
   
   .btn:disabled {
-    background-color: #cccccc;
-    color: #333;
+    background-color: var(--primary-100);
+    color: var(--black);
     cursor: auto;
   }
   
@@ -202,7 +223,7 @@
   .message {
     padding-top: 10px;
     text-align: center;
-    color: rebeccapurple;
+    color: var(--primary-100);
   }
   
   .about-link {
@@ -213,12 +234,12 @@
   }
   
   .about-link a {
-    color: #fff;
+    color: var(--white);
     cursor: pointer;
   }
   
   .about-link a:hover {
-    color: #ff6a95;
+    color: var(--primary-100);
   }
   
   .about h1 {

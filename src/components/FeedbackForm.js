@@ -50,11 +50,11 @@ function FeedbackForm() {
                 addFeedback(newFeedback)
             }
 
-            setBtnDisabled(true)
-            setRating(10)
-            setText('')
+            setBtnDisabled(true);
+            setRating(10);
+            setText('');
         }
-    }
+    };
 
     return (
         <Card>
