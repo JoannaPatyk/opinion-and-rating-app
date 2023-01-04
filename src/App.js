@@ -7,13 +7,15 @@ import {
     Header,
 } from "./components";
 import AboutPage from "./pages/AboutPage";
-import { FeedbackProvider } from "./context/FeedbackContext"
+import { VscFeedback } from "react-icons/vsc";
+import { FeedbackProvider } from "./context/FeedbackContext";
 
 function App() {
     return (
         <FeedbackProvider>
             <BrowserRouter>
                 <Header text={"Feedback App"} />
+                <AboutLink className="help" />
                 <div className="container">
                     <Routes>
                         <Route path="/" element={
@@ -26,7 +28,7 @@ function App() {
                         <Route path="about" element={<AboutPage />} />
                     </Routes>
                 </div>
-                <AboutLink />
+                <VscFeedback className="logo" />
             </BrowserRouter>
         </FeedbackProvider>
     )
